@@ -10,7 +10,7 @@ int main()
     do  
     {  
         printf (" Select an operation to perform the calculation in C Calculator: ");  
-        printf (" \n 1 Addition   \t \t 2 Subtraction \n 3 Multiplication \t 4 Division \n 5 Square \n 7 Exit \n \n Please, Make a choice ");      
+        printf (" \n 1 Addition   \t \t 2 Subtraction \n 3 Multiplication \t 4 Division \n 5 Square \t \t 6 Square Root \n 7 Exit \n \n Please, Make a choice ");      
           
         scanf ("%d", &op);   
        
@@ -64,6 +64,14 @@ int main()
   
             res = n1 * n1;  
             printf (" Square of %d number is: %.2f", n1, res);  
+            break;        
+        case 6:  
+            printf (" You chose: Square Root");  
+            printf ("\n Enter First Number: ");  
+            scanf (" %d", &n1);  
+              
+            res = sqrt(n1); 
+            printf (" Square Root of %d numbers is: %.2f", n1, res);  
             break;
         case 7:  
             printf (" You chose: Exit");  
