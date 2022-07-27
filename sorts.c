@@ -22,12 +22,13 @@ int main()
     while(1)
     {
     int op;
-    printf("Select which sort you would like\n 1 Insertion \t\t 2 Selection \n 3 Bubble \t\t 4 Merge \n 5 Quick \nPlease make a choice\n");
+    printf("Select which sort you would like\n 1 Selection \t\t 2 Insertion \n 3 Bubble \t\t 4 Merge \n 5 Quick \nPlease make a choice\n");
     scanf("%d", &op);
     switch(op)
     {
         case 1:
-        {int posi, temp;
+        {
+        int posi, temp;
         for(int c=0; c<n-1;c++)
         {
             posi=c;
@@ -42,10 +43,17 @@ int main()
                 *(ptr+c)=*(ptr+posi);
                 *(ptr+posi)=temp;
             }
-        }}
+        }
+        }
+        break;
+
+        case 2:
+        {
+            
+        }
         break;
         default:
-        printf("\n Please make a valid choice\n");
+        printf("\nPlease make a valid choice\n");
         continue;
     }
     break;
