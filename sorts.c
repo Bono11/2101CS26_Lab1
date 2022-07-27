@@ -53,14 +53,32 @@ int main()
             int i, hold, j;
             for (i = 1; i < n; i++)
             {
-                hold = *(ptr+i);
+                hold = *(ptr + i);
                 j = i - 1;
-                while (j >= 0 && *(ptr+j) > hold)
+                while (j >= 0 && *(ptr + j) > hold)
                 {
-                    *(ptr+j+1)  = *(ptr+j);
+                    *(ptr + j + 1) = *(ptr + j);
                     j = j - 1;
                 }
-                *(ptr+j+1)=hold;
+                *(ptr + j + 1) = hold;
+            }
+        }
+        break;
+
+        case 3:
+        {
+            int i = 0, j = 0, tmp;
+            for (i = 0; i < n; i++)
+            { 
+                for (j = 0; j < n - i - 1; j++)
+                { 
+                    if (*(ptr+j) > *(ptr+j+1))
+                    { 
+                        tmp = *(ptr+j);
+                        *(ptr+j)= *(ptr+j+1);
+                        *(ptr+j+1) = tmp;
+                    }
+                }
             }
         }
         break;
