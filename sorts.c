@@ -2,6 +2,7 @@
 #include <stdlib.h>
 void merge(int arr[], int l, int m, int r);
 void mergeSort(int arr[], int l, int r);
+void quicksort(int number[], int first, int last);
 int main()
 {
     int n;
@@ -87,9 +88,16 @@ int main()
 
         case 4:
         {
-            mergeSort(ptr, 0, n-1);
+            mergeSort(ptr, 0, n - 1);
         }
         break;
+
+        case 5:
+        {
+            quicksort(ptr,0,n-1);
+        }
+        break;
+
 
         default:
             printf("\nPlease make a valid choice\n");
@@ -115,14 +123,12 @@ void merge(int arr[], int l, int m, int r)
 
     int L[n1], R[n2];
 
-   
     for (i = 0; i < n1; i++)
         L[i] = arr[l + i];
     for (j = 0; j < n2; j++)
         R[j] = arr[m + 1 + j];
 
     i = 0;
-
 
     j = 0;
 
@@ -149,7 +155,6 @@ void merge(int arr[], int l, int m, int r)
         k++;
     }
 
-
     while (j < n2)
     {
         arr[k] = R[j];
@@ -160,15 +165,62 @@ void merge(int arr[], int l, int m, int r)
 
 void mergeSort(int arr[], int l, int r)
 {
-    if(l < r)
+    if (l < r)
     {
-     
-        int m = l + (r - l) / 2;
 
+        int m = l + (r - l) / 2;
 
         mergeSort(arr, l, m);
         mergeSort(arr, m + 1, r);
 
         merge(arr, l, m, r);
+    }
+}
+
+void quicksort(int number[], int first, int last)
+{
+
+    int i, j, pivot, temp;
+
+    if (first < last)
+    {
+
+        pivot = first;
+
+        i = first;
+
+        j = last;
+
+        while (i < j)
+        {
+
+            while (number[i] <= number[pivot] && i < last)
+
+                i++;
+
+            while (number[j] > number[pivot])
+
+                j--;
+
+            if (i < j)
+            {
+
+                temp = number[i];
+
+                number[i] = number[j];
+
+                number[j] = temp;
+            }
+        }
+
+        temp = number[pivot];
+
+        number[pivot] = number[j];
+
+        number[j] = temp;
+
+        quicksort(number, first, j - 1);
+
+        quicksort(number, j + 1, last);
     }
 }
